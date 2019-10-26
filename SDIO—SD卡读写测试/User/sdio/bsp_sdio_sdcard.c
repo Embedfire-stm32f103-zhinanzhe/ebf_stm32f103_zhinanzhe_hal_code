@@ -79,19 +79,19 @@ uint8_t BSP_SD_Init(void)
   */
 uint8_t BSP_SD_ITConfig(void)
 { 
-  GPIO_InitTypeDef gpioinitstruct = {0};
-  
-  /* Configure Interrupt mode for SD detection pin */ 
-  gpioinitstruct.Mode      = GPIO_MODE_IT_RISING_FALLING;
-  gpioinitstruct.Pull      = GPIO_PULLUP;
-  gpioinitstruct.Speed     = GPIO_SPEED_FREQ_HIGH;
-  gpioinitstruct.Pin       = SD_DETECT_PIN;
-  HAL_GPIO_Init(SD_DETECT_GPIO_PORT, &gpioinitstruct);
-    
-  /* NVIC configuration for SDIO interrupts */
-  HAL_NVIC_SetPriority(SD_DETECT_IRQn, 0xE, 0);
-  HAL_NVIC_EnableIRQ(SD_DETECT_IRQn);
-  
+//  GPIO_InitTypeDef gpioinitstruct = {0};
+//  
+//  /* Configure Interrupt mode for SD detection pin */ 
+//  gpioinitstruct.Mode      = GPIO_MODE_IT_RISING_FALLING;
+//  gpioinitstruct.Pull      = GPIO_PULLUP;
+//  gpioinitstruct.Speed     = GPIO_SPEED_FREQ_HIGH;
+//  gpioinitstruct.Pin       = SD_DETECT_PIN;
+//  HAL_GPIO_Init(SD_DETECT_GPIO_PORT, &gpioinitstruct);
+//    
+//  /* NVIC configuration for SDIO interrupts */
+//  HAL_NVIC_SetPriority(SD_DETECT_IRQn, 0xE, 0);
+//  HAL_NVIC_EnableIRQ(SD_DETECT_IRQn);
+//  
   return 0;
 }
 

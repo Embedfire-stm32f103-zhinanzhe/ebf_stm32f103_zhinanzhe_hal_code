@@ -61,8 +61,8 @@ void XPT2046_Init ( void )
 {
   GPIO_InitTypeDef  GPIO_InitStructure;
 	 /* 开启GPIO时钟 */
-	__HAL_RCC_GPIOF_CLK_ENABLE();
-	__HAL_RCC_GPIOG_CLK_ENABLE();
+	__HAL_RCC_GPIOE_CLK_ENABLE();
+	__HAL_RCC_GPIOD_CLK_ENABLE();
  
   /* 模拟SPI GPIO初始化 */          
   GPIO_InitStructure.Pin=XPT2046_SPI_CLK_PIN;

@@ -22,13 +22,13 @@ RAM基地址 = 0X6D00 0000 = 0X6C00 0000+2^23*2 = 0X6C00 0000 + 0X100 0000 = 0X6D00
 
 /******************************* ILI9341 显示屏的 FSMC 参数定义 ***************************/
 //FSMC_Bank1_NORSRAM用于LCD命令操作的地址
-#define      FSMC_Addr_ILI9341_CMD         ( ( uint32_t ) 0x6C000000 )
+#define      FSMC_Addr_ILI9341_CMD         ( ( uint32_t ) 0x60000000 )
 
 //FSMC_Bank1_NORSRAM用于LCD数据操作的地址      
-#define      FSMC_Addr_ILI9341_DATA        ( ( uint32_t ) 0x6D000000 )
+#define      FSMC_Addr_ILI9341_DATA        ( ( uint32_t ) 0x60020000 )
 
 //由片选引脚决定的NOR/SRAM块
-#define      FSMC_Bank1_NORSRAMx           FSMC_NORSRAM_BANK4 
+#define      FSMC_Bank1_NORSRAMx           FSMC_NORSRAM_BANK1
 
 
 /*************************************** 调试预用 ******************************************/
@@ -123,6 +123,8 @@ void ILI9341_DisplayStringEx_YDir(uint16_t x, 		//字符显示位置x
 /* 直接操作寄存器的方法控制IO */
 #define	digitalH(p,i)			{p->BSRR=i;}			  //设置为高电平		
 #define digitalL(p,i)			{p->BSRR=(uint32_t)i << 16;}				//输出低电平
+
+
 
 
 

@@ -6,8 +6,8 @@
 
 
 /* XPT2046 触摸屏触摸信号指示引脚定义(不使用中断)*/
-#define    XPT2046_PENIRQ_GPIO_PORT   GPIOF
-#define    XPT2046_PENIRQ_GPIO_PIN    GPIO_PIN_9
+#define    XPT2046_PENIRQ_GPIO_PORT   GPIOE
+#define    XPT2046_PENIRQ_GPIO_PIN    GPIO_PIN_4
 
 //触屏信号有效电平
 #define   XPT2046_PENIRQ_ActiveLevel       0
@@ -17,17 +17,17 @@
 
 /*XPT2046 触摸屏模拟SPI引脚定义*/
 
-#define    XPT2046_SPI_CS_PIN		          GPIO_PIN_10
-#define    XPT2046_SPI_CS_PORT		        GPIOF
+#define    XPT2046_SPI_CS_PIN		          GPIO_PIN_13
+#define    XPT2046_SPI_CS_PORT		        GPIOD
 
-#define	   XPT2046_SPI_CLK_PIN	          GPIO_PIN_7
-#define    XPT2046_SPI_CLK_PORT	          GPIOG
+#define	   XPT2046_SPI_CLK_PIN	          GPIO_PIN_0
+#define    XPT2046_SPI_CLK_PORT	          GPIOE
 
-#define	   XPT2046_SPI_MOSI_PIN	          GPIO_PIN_11
-#define	   XPT2046_SPI_MOSI_PORT	        GPIOF
+#define	   XPT2046_SPI_MOSI_PIN	          GPIO_PIN_2
+#define	   XPT2046_SPI_MOSI_PORT	        GPIOE
 
-#define	   XPT2046_SPI_MISO_PIN	          GPIO_PIN_6
-#define	   XPT2046_SPI_MISO_PORT	        GPIOF
+#define	   XPT2046_SPI_MISO_PIN	          GPIO_PIN_3
+#define	   XPT2046_SPI_MISO_PORT	        GPIOE
 
 
 /* 直接操作寄存器的方法控制IO */

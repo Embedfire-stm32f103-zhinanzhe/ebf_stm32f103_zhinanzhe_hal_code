@@ -43,7 +43,7 @@ int main(void)
   /*初始化USART 配置模式为 115200 8-N-1，中断接收*/
   DEBUG_USART_Config();
   
-  printf("\r\n 欢迎使用秉火  STM32 F103 开发板。\r\n");		 
+  printf("\r\n 欢迎使用野火  STM32 F103 开发板。\r\n");		 
   printf("\r\n 这是一个I2C外设(AT24C02)读写测试例程 \r\n");
   
 	/* I2C 外设初(AT24C02)始化 */

@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * 实验平台:野火 F103-霸道 STM32 开发板 
+  * 实验平台:野火 F103 STM32 开发板 
   * 论坛    :http://www.firebbs.cn
   * 淘宝    :https://fire-stm32.taobao.com
   *
@@ -108,7 +108,6 @@ static void ILI9341_GPIO_Config ( void )
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_FSMC_CLK_ENABLE();			//使能FSMC时钟
   
     /* Common GPIO configuration */
@@ -118,134 +117,25 @@ static void ILI9341_GPIO_Config ( void )
 
   
   GPIO_Initure.Pin=GPIO_PIN_12;
-	HAL_GPIO_Init(GPIOG,&GPIO_Initure);
+	HAL_GPIO_Init(GPIOD,&GPIO_Initure);
   
   //初始化复位引脚G11
-	GPIO_Initure.Pin=GPIO_PIN_11;
-	HAL_GPIO_Init(GPIOG,&GPIO_Initure);
+	GPIO_Initure.Pin=GPIO_PIN_1;
+	HAL_GPIO_Init(GPIOE,&GPIO_Initure);
   
   GPIO_Initure.Mode=GPIO_MODE_AF_PP; 
 //  GPIO_Initure.Alternate=GPIO_AF12_FSMC;	//复用为FSMC
   
 	//初始化PD0,1,4,5,8,9,10,14,15
-	GPIO_Initure.Pin=GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_8|\
-					         GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_14|GPIO_PIN_15; 
+	GPIO_Initure.Pin=GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_7|GPIO_PIN_8|\
+					         GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_14|GPIO_PIN_15; 
   HAL_GPIO_Init(GPIOD, &GPIO_Initure);
   
   	//初始化PE2,7,8,9,10,11,12,13,14,15
-	GPIO_Initure.Pin=GPIO_PIN_2|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|\
+	GPIO_Initure.Pin=  GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|\
                      GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
 	HAL_GPIO_Init(GPIOE,&GPIO_Initure);
 	
-	//初始化G12
-	GPIO_Initure.Pin=GPIO_PIN_6;
-	HAL_GPIO_Init(GPIOG,&GPIO_Initure);
-
-
-//	/* 使能FSMC对应相应管脚时钟*/
-//	RCC_APB2PeriphClockCmd ( 	
-//													/*控制信号*/
-//													ILI9341_CS_CLK|ILI9341_DC_CLK|ILI9341_WR_CLK|
-//													ILI9341_RD_CLK	|ILI9341_BK_CLK|ILI9341_RST_CLK|
-//													/*数据信号*/
-//													ILI9341_D0_CLK|ILI9341_D1_CLK|	ILI9341_D2_CLK | 
-//													ILI9341_D3_CLK | ILI9341_D4_CLK|ILI9341_D5_CLK|
-//													ILI9341_D6_CLK | ILI9341_D7_CLK|ILI9341_D8_CLK|
-//													ILI9341_D9_CLK | ILI9341_D10_CLK|ILI9341_D11_CLK|
-//													ILI9341_D12_CLK | ILI9341_D13_CLK|ILI9341_D14_CLK|
-//													ILI9341_D15_CLK	, ENABLE );
-//		
-//	
-//	/* 配置FSMC相对应的数据线,FSMC-D0~D15 */	
-//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-//	GPIO_InitStructure.GPIO_Mode =  GPIO_Mode_AF_PP;
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D0_PIN;
-//	GPIO_Init ( ILI9341_D0_PORT, & GPIO_InitStructure );
-
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D1_PIN;
-//	GPIO_Init ( ILI9341_D1_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D2_PIN;
-//	GPIO_Init ( ILI9341_D2_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D3_PIN;
-//	GPIO_Init ( ILI9341_D3_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D4_PIN;
-//	GPIO_Init ( ILI9341_D4_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D5_PIN;
-//	GPIO_Init ( ILI9341_D5_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D6_PIN;
-//	GPIO_Init ( ILI9341_D6_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D7_PIN;
-//	GPIO_Init ( ILI9341_D7_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D8_PIN;
-//	GPIO_Init ( ILI9341_D8_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D9_PIN;
-//	GPIO_Init ( ILI9341_D9_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D10_PIN;
-//	GPIO_Init ( ILI9341_D10_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D11_PIN;
-//	GPIO_Init ( ILI9341_D11_PORT, & GPIO_InitStructure );
-
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D12_PIN;
-//	GPIO_Init ( ILI9341_D12_PORT, & GPIO_InitStructure );	
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D13_PIN;
-//	GPIO_Init ( ILI9341_D13_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D14_PIN;
-//	GPIO_Init ( ILI9341_D14_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_D15_PIN;
-//	GPIO_Init ( ILI9341_D15_PORT, & GPIO_InitStructure );
-//	
-
-//	
-//	/* 配置FSMC相对应的控制线
-//	 * FSMC_NOE   :LCD-RD
-//	 * FSMC_NWE   :LCD-WR
-//	 * FSMC_NE1   :LCD-CS
-//	 * FSMC_A16  	:LCD-DC
-//	 */
-//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-//	GPIO_InitStructure.GPIO_Mode =  GPIO_Mode_AF_PP;
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_RD_PIN; 
-//	GPIO_Init (ILI9341_RD_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_WR_PIN; 
-//	GPIO_Init (ILI9341_WR_PORT, & GPIO_InitStructure );
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_CS_PIN; 
-//	GPIO_Init ( ILI9341_CS_PORT, & GPIO_InitStructure );  
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_DC_PIN; 
-//	GPIO_Init ( ILI9341_DC_PORT, & GPIO_InitStructure );
-//	
-
-//  /* 配置LCD复位RST控制管脚*/
-//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_RST_PIN; 
-//	GPIO_Init ( ILI9341_RST_PORT, & GPIO_InitStructure );
-//	
-//	
-//	/* 配置LCD背光控制管脚BK*/
-//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;  
-//	
-//	GPIO_InitStructure.GPIO_Pin = ILI9341_BK_PIN; 
-//	GPIO_Init ( ILI9341_BK_PORT, & GPIO_InitStructure );
 }
 
 
@@ -481,11 +371,11 @@ void  ILI9341_BackLed_Control ( FunctionalState enumState )
 {
 	if ( enumState )
   {
-    digitalL( GPIOG, GPIO_PIN_6);	
+    digitalL( GPIOD, GPIO_PIN_12);	
   }
 	else
   {
-    digitalH( GPIOG, GPIO_PIN_6);
+    digitalH( GPIOD, GPIO_PIN_12);
   }		
 }
 
@@ -498,11 +388,11 @@ void  ILI9341_BackLed_Control ( FunctionalState enumState )
  */
 void ILI9341_Rst( void )
 {			
-	digitalL( GPIOG,GPIO_PIN_11);	 //低电平复位
+	digitalL( GPIOE,GPIO_PIN_1);	 //低电平复位
 
 	ILI9341_Delay ( 0xAFF ); 						   
 
-	digitalH( GPIOG,GPIO_PIN_11);		 	 
+	digitalH( GPIOE,GPIO_PIN_1);		 	 
 
 	ILI9341_Delay ( 0xAFF ); 	 	
 	
