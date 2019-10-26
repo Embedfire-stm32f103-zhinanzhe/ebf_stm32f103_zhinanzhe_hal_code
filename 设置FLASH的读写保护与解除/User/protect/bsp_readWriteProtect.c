@@ -56,6 +56,7 @@ __IO TestStatus MemoryProgramStatus = PASSED;
   */
 void FLASH_Test(void)
 {
+	printf("初始化结束，开始测试\r\n");
 	  /* 初始化测试状态 */
   MemoryProgramStatus = PASSED;
   
@@ -72,6 +73,7 @@ void FLASH_Test(void)
   /* 检查所需页面是否已被写保护*/
   if((OptionsBytesStruct.WRPPage & FLASH_PAGE_TO_BE_PROTECTED) != FLASH_PAGE_TO_BE_PROTECTED)
   {
+		printf("页面已被写保护，正在恢复写保护页面\r\n");
     /*恢复写保护页面 */
     OptionsBytesStruct.OptionType   = OPTIONBYTE_WRP;
     OptionsBytesStruct.WRPState     = OB_WRPSTATE_DISABLE;
@@ -92,6 +94,7 @@ void FLASH_Test(void)
   /* 检查所需页面是否尚未写保护*/
   if(((~OptionsBytesStruct.WRPPage) & FLASH_PAGE_TO_BE_PROTECTED )!= FLASH_PAGE_TO_BE_PROTECTED)
   {
+	  printf("页面未被写保护，正在启用写保护页面\r\n");
     /* 启用页面写保护*/
     OptionsBytesStruct.OptionType = OPTIONBYTE_WRP;
     OptionsBytesStruct.WRPState   = OB_WRPSTATE_ENABLE;
@@ -116,6 +119,7 @@ void FLASH_Test(void)
   /* 所选页面未被写保护*/
   if ((OptionsBytesStruct.WRPPage & FLASH_PAGE_TO_BE_PROTECTED) != 0x00)
   {
+		printf("页面未被写保护，正在擦除页面\r\n");
     /*填写EraseInit结构*/
     EraseInitStruct.TypeErase   = FLASH_TYPEERASE_PAGES;
     EraseInitStruct.PageAddress = FLASH_USER_START_ADDR;
@@ -202,6 +206,7 @@ void FLASH_Test(void)
   if (MemoryProgramStatus == PASSED)
   {
     LED2_ON
+		printf("检查 --> 程序数据正常\r\n");
   }
   else
   {
@@ -211,6 +216,7 @@ void FLASH_Test(void)
       printf("运行失败\r\n");
     }
   }
+	printf("测试结束\r\n");
 
   while (1)
   {
