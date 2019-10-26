@@ -19,7 +19,7 @@ int main(void)
 	GPIOB_CRL |= (1<<4*0);
 
 	// PB0 Êä³ö µÍµçÆ½
-	GPIOB_ODR |=(1<<0);
+	GPIOB_ODR &=(1<<0);
 	
 	while(1);
 }
