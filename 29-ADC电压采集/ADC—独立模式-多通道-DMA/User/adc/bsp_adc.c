@@ -37,7 +37,7 @@ static void Rheostat_ADC_Mode_Config(void)
      hdma_adcx.Init.PeriphInc=DMA_PINC_DISABLE;                 //外设非增量模式
      hdma_adcx.Init.MemInc=DMA_MINC_ENABLE;                     //存储器增量模式 
      hdma_adcx.Init.PeriphDataAlignment=DMA_PDATAALIGN_HALFWORD;//外设数据长度:16位
-     hdma_adcx.Init.MemDataAlignment=DMA_PDATAALIGN_HALFWORD;   //存储器数据长度:16位
+     hdma_adcx.Init.MemDataAlignment=DMA_MDATAALIGN_HALFWORD;   //存储器数据长度:16位
      hdma_adcx.Init.Mode= DMA_CIRCULAR;                         //外设普通模式
      hdma_adcx.Init.Priority=DMA_PRIORITY_MEDIUM;               //中等优先级
 
