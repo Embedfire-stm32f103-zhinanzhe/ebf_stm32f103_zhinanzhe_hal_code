@@ -815,7 +815,7 @@ uint8_t XPT2046_TouchDetect(void)
 void XPT2046_TouchDown(strType_XPT2046_Coordinate * touch)
 {
 	//若为负值表示之前已处理过
-	if(touch->pre_x == -1 && touch->pre_x == -1)
+	if(touch->pre_x == -1 && touch->pre_y == -1)
 		return;
 	
 	/***在此处编写自己的触摸按下处理应用***/
@@ -840,7 +840,7 @@ void XPT2046_TouchDown(strType_XPT2046_Coordinate * touch)
 void XPT2046_TouchUp(strType_XPT2046_Coordinate * touch) 
 {
 	//若为负值表示之前已处理过
-	if(touch->pre_x == -1 && touch->pre_x == -1)
+	if(touch->pre_x == -1 && touch->pre_y == -1)
 		return;
 		
 	/***在此处编写自己的触摸释放处理应用***/
