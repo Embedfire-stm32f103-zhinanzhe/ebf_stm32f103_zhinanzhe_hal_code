@@ -24,8 +24,8 @@
 
 
 /** 控制LED灯亮灭的宏，
-	* LED低电平亮，设置ON=0，OFF=1
-	* 若LED高电平亮，把宏设置成ON=1 ，OFF=0 即可
+	* LED低电平亮，设置ON=GPIO_PIN_RESET，OFF=GPIO_PIN_SET
+	* 若LED高电平亮，把宏设置成ON=GPIO_PIN_SET ，OFF=GPIO_PIN_RESET 即可
 	*/
 #define ON  GPIO_PIN_RESET
 #define OFF GPIO_PIN_SET

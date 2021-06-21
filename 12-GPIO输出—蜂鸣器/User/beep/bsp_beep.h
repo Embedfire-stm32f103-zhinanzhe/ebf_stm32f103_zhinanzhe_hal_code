@@ -11,16 +11,16 @@
 #define BEEP_GPIO_PIN		  	GPIO_PIN_8			          /* 连接到蜂鸣器的GPIO */
 
 /* 高电平时，蜂鸣器响 */
-#define ON  1
-#define OFF 0
+#define ON  GPIO_PIN_SET
+#define OFF GPIO_PIN_RESET
 
 /* 带参宏，可以像内联函数一样使用 */
 #define BEEP(a)	HAL_GPIO_WritePin(BEEP_GPIO_PORT,BEEP_GPIO_PIN,a)
-					
+
 /* 直接操作寄存器的方法控制IO */
-#define	digitalHi(p,i)			{p->BSRR = i;}			        //设置为高电平		
-#define digitalLo(p,i)			{p->BSRR = (uint32_t)i << 16;;}  //输出低电平
-#define digitalToggle(p,i)	    {p->ODR ^=i;}			//输出反转状态
+#define	digitalHi(p,i)			{p->BSRR=i;}			  //设置为高电平		
+#define digitalLo(p,i)			{p->BSRR=(uint32_t)i << 16;}				//输出低电平
+#define digitalToggle(p,i)		{p->ODR ^=i;}			//输出反转状态
 
 
 /* 定义控制IO的宏 */

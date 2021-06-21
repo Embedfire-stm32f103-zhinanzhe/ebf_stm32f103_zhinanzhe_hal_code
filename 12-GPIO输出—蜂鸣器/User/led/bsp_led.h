@@ -24,11 +24,11 @@
 
 
 /** 控制LED灯亮灭的宏，
-	* LED低电平亮，设置ON=0，OFF=1
-	* 若LED高电平亮，把宏设置成ON=1 ，OFF=0 即可
+	* LED低电平亮，设置TURN_ON=0，TURN_OFF=1
+	* 若LED高电平亮，把宏设置成TURN_ON=1 ，TURN_OFF=0 即可
 	*/
-#define ON  GPIO_PIN_RESET
-#define OFF GPIO_PIN_SET
+#define TURN_ON   GPIO_PIN_RESET
+#define TURN_OFF 1 GPIO_PIN_SET
 
 /* 带参宏，可以像内联函数一样使用 */
 #define LED1(a)	HAL_GPIO_WritePin(LED1_GPIO_PORT,LED1_PIN,a)
